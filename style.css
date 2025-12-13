@@ -22,6 +22,21 @@ body {
     border: 3px solid white; /* optional border */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* subtle shadow */
 }
+#hero {
+    background: linear-gradient(-45deg, #4a90e2, #50e3c2, #9013fe, #f5a623);
+    background-size: 400% 400%;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 
 
 /* Section styling */
