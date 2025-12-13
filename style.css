@@ -30,6 +30,48 @@ body {
     padding: 100px 20px;
     animation: gradientAnimation 15s ease infinite;
 }
+/* Hero section flex layout */
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px; /* space between photo and text */
+    padding: 80px 20px;
+    background: linear-gradient(-45deg, #4a90e2, #50e3c2, #9013fe, #f5a623);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: white;
+}
+
+.hero-left img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.hero-right h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-right p {
+    font-size: 1.2rem;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .hero-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-left img {
+        margin-bottom: 20px;
+    }
+}
+
 
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
