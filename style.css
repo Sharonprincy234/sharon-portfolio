@@ -3,6 +3,7 @@ body {
   font-family: Arial, sans-serif;
   background: #0f172a;
   color: #e5e7eb;
+  scroll-behavior: smooth;
 }
 
 .hero {
@@ -21,6 +22,12 @@ body {
   background: #6366f1;
   color: white;
   border-radius: 6px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.buttons a:hover {
+  transform: translateY(-3px);
+  background: #4f46e5;
 }
 
 .buttons .outline {
@@ -32,6 +39,17 @@ section {
   max-width: 900px;
   margin: auto;
   padding: 40px 20px;
+  transition: all 0.6s ease;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-card {
@@ -39,6 +57,11 @@ section {
   padding: 15px;
   margin: 10px 0;
   border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
 }
 
 footer {
