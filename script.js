@@ -8,6 +8,16 @@ const revealOnScroll = () => {
         if (sectionTop < triggerPoint) {
             section.classList.add('show');
         }
+        const text = document.querySelector('.typed-text').textContent;
+const textArray = text.split('');
+document.querySelector('.typed-text').textContent = '';
+
+textArray.forEach((char, index) => {
+    setTimeout(() => {
+        document.querySelector('.typed-text').textContent += char;
+    }, 100 * index); // 100ms per letter
+});
+
     });
 };
 
