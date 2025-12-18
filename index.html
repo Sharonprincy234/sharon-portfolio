@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Sharon Princy | AI Portfolio</title>
 
+<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -26,7 +30,7 @@ body.light{
 section{padding:90px 10%}
 h2{text-align:center;font-size:2.3rem;margin-bottom:40px}
 
-/* ================= NAVBAR ================= */
+/* NAVBAR */
 .navbar{
   position:fixed;top:0;width:100%;
   display:flex;justify-content:space-between;align-items:center;
@@ -45,10 +49,7 @@ body.light .navbar{background:rgba(255,255,255,.7)}
   gap:25px;
 }
 .nav-links a{
-  color:inherit;
-  text-decoration:none;
-  font-weight:500;
-  position:relative;
+  color:inherit;text-decoration:none;font-weight:500;position:relative;
 }
 .nav-links a::after{
   content:'';
@@ -60,42 +61,27 @@ body.light .navbar{background:rgba(255,255,255,.7)}
 }
 .nav-links a:hover::after{width:100%}
 
-.nav-actions{
-  display:flex;
-  gap:15px;
-  align-items:center;
-}
+.nav-actions{display:flex;gap:15px;align-items:center}
 .icon-btn{
-  background:none;
-  border:none;
+  background:none;border:none;
   font-size:1.3rem;
   cursor:pointer;
   color:inherit;
   text-decoration:none;
 }
 
-.hamburger{
-  display:none;
-  flex-direction:column;
-  gap:5px;
-  cursor:pointer;
-}
-.hamburger span{
-  width:25px;
-  height:3px;
-  background:currentColor;
-}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:25px;height:3px;background:currentColor}
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
   min-height:100vh;
   padding-top:120px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  align-items:center;
   gap:50px;
+  align-items:center;
 }
-
 .hero-left img{
   width:280px;
   border-radius:50%;
@@ -134,13 +120,12 @@ body.light .navbar{background:rgba(255,255,255,.7)}
   box-shadow:0 0 18px #38bdf8;
 }
 
-/* ================= CARDS ================= */
+/* CARDS */
 .card-container{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
 }
-
 .card{
   background:rgba(255,255,255,.08);
   backdrop-filter:blur(14px);
@@ -156,8 +141,7 @@ body.light .navbar{background:rgba(255,255,255,.7)}
   box-shadow:0 0 30px rgba(56,189,248,.4);
 }
 
-/* ================= SKILLS ================= */
-.skill{margin-bottom:15px}
+/* SKILLS */
 .bar{
   height:8px;
   background:#1e293b;
@@ -171,7 +155,7 @@ body.light .navbar{background:rgba(255,255,255,.7)}
   transition:1.5s;
 }
 
-/* ================= PROJECT LINKS ================= */
+/* PROJECT LINKS */
 .project a{
   display:inline-block;
   margin-top:10px;
@@ -181,14 +165,14 @@ body.light .navbar{background:rgba(255,255,255,.7)}
 }
 .project a:hover{text-decoration:underline}
 
-/* ================= FOOTER ================= */
+/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
   background:rgba(0,0,0,.4);
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 @media(max-width:768px){
   .hero{grid-template-columns:1fr;text-align:center}
   .buttons{justify-content:center}
@@ -209,28 +193,29 @@ footer{
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR -->
 <nav class="navbar">
-  <div class="nav-brand">Sharon</div>
+  <div class="nav-brand">Sharon portfolio</div>
 
   <ul class="nav-links" id="navLinks">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#certificates">Certificates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 
   <div class="nav-actions">
-    <a href="https://github.com/YOUR_GITHUB" target="_blank" class="icon-btn">🐙</a>
-    <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="icon-btn">💼</a>
-    <a href="resume.pdf" download class="icon-btn">📄</a>
-    <button class="icon-btn" id="themeToggle">🌙</button>
+    <a href="https://github.com/YOUR_GITHUB" target="_blank" class="icon-btn"><i class="fab fa-github"></i></a>
+    <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="icon-btn"><i class="fab fa-linkedin"></i></a>
+    <a href="resume.pdf" download class="icon-btn"><i class="fas fa-file-download"></i></a>
+    <button class="icon-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <header class="hero" id="home">
   <div class="hero-left">
     <img src="portpic.jpg" alt="A Sharon Princy">
@@ -245,7 +230,7 @@ footer{
   </div>
 </header>
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 <section id="about">
 <h2>About Me</h2>
 <p style="max-width:800px;margin:auto;text-align:center">
@@ -254,54 +239,42 @@ Large Language Models, Data Analytics and UI/UX. Passionate about building intel
 </p>
 </section>
 
-<!-- ================= SKILLS ================= -->
+<!-- SKILLS -->
 <section id="skills">
 <h2>Skills</h2>
 <div class="card-container">
-
 <div class="card"><h3>Python</h3><div class="bar"><div class="fill" data-width="90%"></div></div></div>
 <div class="card"><h3>Machine Learning</h3><div class="bar"><div class="fill" data-width="85%"></div></div></div>
 <div class="card"><h3>Deep Learning</h3><div class="bar"><div class="fill" data-width="75%"></div></div></div>
 <div class="card"><h3>LLMs & NLP</h3><div class="bar"><div class="fill" data-width="70%"></div></div></div>
 <div class="card"><h3>Power BI</h3><div class="bar"><div class="fill" data-width="80%"></div></div></div>
 <div class="card"><h3>HTML, CSS & JS</h3><div class="bar"><div class="fill" data-width="75%"></div></div></div>
-
 </div>
 </section>
 
-<!-- ================= PROJECTS ================= -->
+<!-- PROJECTS -->
 <section id="projects">
 <h2>Projects</h2>
 <div class="card-container">
-
-<div class="card project">
-<h3>✈️ Flight Price Prediction</h3>
-<p>ML regression model to predict airfare.</p>
-<a href="#">View Project →</a>
-</div>
-
-<div class="card project">
-<h3>🤖 LLM Finance Chatbot</h3>
-<p>AI chatbot using LLMs & prompt engineering.</p>
-<a href="#">View Project →</a>
-</div>
-
-<div class="card project">
-<h3>📊 Diabetes Dashboard</h3>
-<p>Power BI health analytics dashboard.</p>
-<a href="#">View Project →</a>
-</div>
-
-<div class="card project">
-<h3>📈 Student Performance Analysis</h3>
-<p>Python based data analytics project.</p>
-<a href="#">View Project →</a>
-</div>
-
+<div class="card project"><h3>✈️ Flight Price Prediction</h3><p>ML regression model.</p><a href="#">View Project →</a></div>
+<div class="card project"><h3>🤖 LLM Finance Chatbot</h3><p>LLM-powered chatbot.</p><a href="#">View Project →</a></div>
+<div class="card project"><h3>📊 Diabetes Dashboard</h3><p>Power BI analytics.</p><a href="#">View Project →</a></div>
+<div class="card project"><h3>📈 Student Performance Analysis</h3><p>Python analytics.</p><a href="#">View Project →</a></div>
 </div>
 </section>
 
-<!-- ================= CONTACT ================= -->
+<!-- CERTIFICATES -->
+<section id="certificates">
+<h2>Certifications</h2>
+<div class="card-container">
+<div class="card"><h3>Machine Learning with Python</h3><p>Coursera / IBM</p></div>
+<div class="card"><h3>Prompt Engineering for LLMs</h3><p>DeepLearning.AI</p></div>
+<div class="card"><h3>Power BI Data Analyst</h3><p>Microsoft Learn</p></div>
+<div class="card"><h3>Python for Data Science</h3><p>NPTEL</p></div>
+</div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
 <h2>Contact</h2>
 <div class="card-container">
