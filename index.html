@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Sharon Princy | AI Portfolio</title>
+<title>A Sharon Princy | Interactive Portfolio</title>
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -22,9 +22,25 @@ body{
   transition:.4s;
   overflow-x:hidden;
 }
+
+/* THEMES */
 body.light{
   background:linear-gradient(135deg,#f8fafc,#e2e8f0);
   color:#020617;
+}
+body.cyber{
+  background:#020617;
+  color:#00f5ff;
+}
+body.cyber .navbar,
+body.cyber .card{
+  border:1px solid #00f5ff;
+  box-shadow:0 0 15px #00f5ff;
+}
+body.cyber a,
+body.cyber h1,
+body.cyber h2{
+  color:#00f5ff;
 }
 
 section{padding:90px 10%}
@@ -39,36 +55,13 @@ h2{text-align:center;font-size:2.3rem;margin-bottom:40px}
   backdrop-filter:blur(12px);
   z-index:1000;
 }
-body.light .navbar{background:rgba(255,255,255,.7)}
-
 .nav-brand{font-size:1.6rem;font-weight:700}
 
-.nav-links{
-  list-style:none;
-  display:flex;
-  gap:25px;
-}
-.nav-links a{
-  color:inherit;text-decoration:none;font-weight:500;position:relative;
-}
-.nav-links a::after{
-  content:'';
-  position:absolute;
-  left:0;bottom:-5px;
-  width:0;height:2px;
-  background:#38bdf8;
-  transition:.3s;
-}
-.nav-links a:hover::after{width:100%}
+.nav-links{list-style:none;display:flex;gap:25px}
+.nav-links a{color:inherit;text-decoration:none;font-weight:500}
 
 .nav-actions{display:flex;gap:15px;align-items:center}
-.icon-btn{
-  background:none;border:none;
-  font-size:1.3rem;
-  cursor:pointer;
-  color:inherit;
-  text-decoration:none;
-}
+.icon-btn{background:none;border:none;font-size:1.3rem;color:inherit;cursor:pointer}
 
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
 .hamburger span{width:25px;height:3px;background:currentColor}
@@ -79,13 +72,13 @@ body.light .navbar{background:rgba(255,255,255,.7)}
   padding-top:120px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:50px;
   align-items:center;
+  gap:50px;
 }
 .hero-left img{
   width:280px;
   border-radius:50%;
-  box-shadow:0 0 45px rgba(56,189,248,.5);
+  box-shadow:0 0 40px rgba(56,189,248,.5);
   animation:float 4s ease-in-out infinite;
 }
 @keyframes float{
@@ -96,18 +89,14 @@ body.light .navbar{background:rgba(255,255,255,.7)}
 .hero-right h1{font-size:3.2rem}
 .typing{color:#38bdf8;font-weight:600;margin-top:10px}
 
-.buttons{
-  margin-top:30px;
-  display:flex;
-  gap:15px;
-}
+.buttons{margin-top:30px;display:flex;gap:15px}
 .buttons a{
   padding:12px 26px;
   border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
   background:#38bdf8;
   color:#020617;
+  text-decoration:none;
+  font-weight:600;
   transition:.3s;
 }
 .buttons a.outline{
@@ -115,10 +104,7 @@ body.light .navbar{background:rgba(255,255,255,.7)}
   border:2px solid #38bdf8;
   color:#38bdf8;
 }
-.buttons a:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 18px #38bdf8;
-}
+.buttons a:hover{transform:scale(1.08)}
 
 /* CARDS */
 .card-container{
@@ -131,46 +117,47 @@ body.light .navbar{background:rgba(255,255,255,.7)}
   backdrop-filter:blur(14px);
   padding:25px;
   border-radius:20px;
+  cursor:pointer;
   transition:.4s;
-  opacity:0;
-  transform:translateY(40px);
 }
-.card.show{opacity:1;transform:translateY(0)}
 .card:hover{
-  transform:translateY(-10px) scale(1.03);
+  transform:translateY(-10px);
   box-shadow:0 0 30px rgba(56,189,248,.4);
 }
 
-/* SKILLS */
-.bar{
-  height:8px;
-  background:#1e293b;
-  border-radius:10px;
-  overflow:hidden;
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
 }
-.fill{
-  height:100%;
-  width:0;
-  background:linear-gradient(135deg,#38bdf8,#818cf8);
-  transition:1.5s;
+.modal-content{
+  background:#020617;
+  padding:30px;
+  border-radius:20px;
+  max-width:420px;
+  text-align:center;
 }
-
-/* PROJECT LINKS */
-.project a{
-  display:inline-block;
+.modal-content a{
+  display:block;
   margin-top:10px;
   color:#38bdf8;
-  font-weight:600;
-  text-decoration:none;
 }
-.project a:hover{text-decoration:underline}
+.modal-content button{
+  margin-top:15px;
+  padding:10px 25px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  background:#38bdf8;
+}
 
 /* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  background:rgba(0,0,0,.4);
-}
+footer{text-align:center;padding:20px;background:rgba(0,0,0,.4)}
 
 /* MOBILE */
 @media(max-width:768px){
@@ -178,8 +165,7 @@ footer{
   .buttons{justify-content:center}
   .nav-links{
     position:absolute;
-    top:70px;
-    right:10%;
+    top:70px;right:10%;
     background:#020617;
     padding:20px;
     flex-direction:column;
@@ -195,22 +181,20 @@ footer{
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="nav-brand">Sharon portfolio</div>
+  <div class="nav-brand">Sharon</div>
 
   <ul class="nav-links" id="navLinks">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#certificates">Certificates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 
   <div class="nav-actions">
-    <a href="https://github.com/Sharonprincy234" target="_blank" class="icon-btn"><i class="fab fa-github"></i></a>
-    <a href="https://linkedin.com/in/www.linkedin.com/in/sharon-princy-699721303" target="_blank" class="icon-btn"><i class="fab fa-linkedin"></i></a>
-    <a href="resume.pdf" download class="icon-btn"><i class="fas fa-file-download"></i></a>
-    <button class="icon-btn" id="themeToggle"><i class="fas fa-moon"></i></button>
+    <a href="#" class="icon-btn"><i class="fab fa-github"></i></a>
+    <a href="#" class="icon-btn"><i class="fab fa-linkedin"></i></a>
+    <a href="resume.pdf" download class="icon-btn"><i class="fas fa-file"></i></a>
+    <button class="icon-btn" id="themeToggle"><i class="fas fa-palette"></i></button>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
@@ -218,14 +202,14 @@ footer{
 <!-- HERO -->
 <header class="hero" id="home">
   <div class="hero-left">
-    <img src="portpic.jpg" alt="A Sharon Princy">
+    <img src="portpic.jpg" alt="Sharon">
   </div>
   <div class="hero-right">
     <h1>A Sharon Princy</h1>
     <p class="typing" id="typing"></p>
     <div class="buttons">
       <a href="#contact">Contact</a>
-      <a href="resume.pdf" download class="outline">Download Resume</a>
+      <a href="resume.pdf" download class="outline">Resume</a>
     </div>
   </div>
 </header>
@@ -234,51 +218,47 @@ footer{
 <section id="about">
 <h2>About Me</h2>
 <p style="max-width:800px;margin:auto;text-align:center">
-As an AI enthusiast and dedicated student, I am passionate about exploring the frontiers of artificial intelligence and machine learning. Currently pursuing B.tech in New prince Shri bhavani college of engineering and technology, I am equipped with a solid foundation in key AI concepts and methodologies.
+Final year AI & Data Science student passionate about Machine Learning, LLMs,
+Data Analytics and building intelligent applications.
 </p>
-</section>
-  <!--Inclination  -->
-<section id="Inclination">
-<h2>Inclination</h2>
-<p style="max-width:800px;margin:auto;text-align:center">
-I enjoy working on projects that combine innovation with real-world applications ranging from data analytics and predictive modeling to large language models and intelligent systems. With a continuous learning mindset, I am driven to develop impactful solutions and contribute to the evolving AI landscape.
-
-I am now seeking opportunities to apply my skills through internships, research, and industry projects while further expanding my knowledge in cutting-edge AI technologies
-</p>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-<h2>Skills</h2>
-<div class="card-container">
-<div class="card"><h3>Python</h3><div class="bar"><div class="fill" data-width="90%"></div></div></div>
-<div class="card"><h3>Machine Learning</h3><div class="bar"><div class="fill" data-width="85%"></div></div></div>
-<div class="card"><h3>Deep Learning</h3><div class="bar"><div class="fill" data-width="75%"></div></div></div>
-<div class="card"><h3>LLMs & NLP</h3><div class="bar"><div class="fill" data-width="70%"></div></div></div>
-<div class="card"><h3>Power BI</h3><div class="bar"><div class="fill" data-width="80%"></div></div></div>
-<div class="card"><h3>HTML, CSS & JS</h3><div class="bar"><div class="fill" data-width="75%"></div></div></div>
-</div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
 <h2>Projects</h2>
-<div class="card-container">
-<div class="card project"><h3>✈️ Flight Price Prediction</h3><p>ML regression model.</p><a href="#">View Project →</a></div>
-<div class="card project"><h3>🤖 LLM Finance Chatbot</h3><p>LLM-powered chatbot.</p><a href="#">View Project →</a></div>
-<div class="card project"><h3>📊 Diabetes Dashboard</h3><p>Power BI analytics.</p><a href="#">View Project →</a></div>
-<div class="card project"><h3>📈 Student Performance Analysis</h3><p>Python analytics.</p><a href="#">View Project →</a></div>
-</div>
-</section>
 
-<!-- CERTIFICATES -->
-<section id="certificates">
-<h2>Certifications</h2>
 <div class="card-container">
-<div class="card"><h3>Machine Learning with Python</h3><p>Coursera / IBM</p></div>
-<div class="card"><h3>Prompt Engineering for LLMs</h3><p>DeepLearning.AI</p></div>
-<div class="card"><h3>Power BI Data Analyst</h3><p>Microsoft Learn</p></div>
-<div class="card"><h3>Python for Data Science</h3><p>NPTEL</p></div>
+
+<div class="card" onclick="openModal(
+'Flight Price Prediction',
+'Machine learning regression model to predict flight prices.',
+'Python, ML, Scikit-learn',
+'https://github.com/'
+)">
+<h3>✈️ Flight Price Prediction</h3>
+<p>Click to view details</p>
+</div>
+
+<div class="card" onclick="openModal(
+'LLM Finance Chatbot',
+'Finance chatbot using LLMs and prompt engineering.',
+'Python, NLP, LLM',
+'https://github.com/'
+)">
+<h3>🤖 LLM Finance Chatbot</h3>
+<p>Click to view details</p>
+</div>
+
+<div class="card" onclick="openModal(
+'Diabetes Dashboard',
+'Interactive Power BI dashboard for healthcare analytics.',
+'Power BI, Data Analytics',
+'#'
+)">
+<h3>📊 Diabetes Dashboard</h3>
+<p>Click to view details</p>
+</div>
+
 </div>
 </section>
 
@@ -294,34 +274,54 @@ I am now seeking opportunities to apply my skills through internships, research,
 
 <footer>© 2025 A Sharon Princy</footer>
 
+<!-- MODAL -->
+<div class="modal" id="projectModal">
+  <div class="modal-content">
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <p><strong>Tech Stack:</strong> <span id="modalTech"></span></p>
+    <a id="modalLink" target="_blank">View Project →</a>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+
 <script>
+/* THEME TOGGLE */
+const themes=["","light","cyber"];
+let themeIndex=0;
 document.getElementById("themeToggle").onclick=()=>{
-  document.body.classList.toggle("light")
-}
+  document.body.className="";
+  themeIndex=(themeIndex+1)%themes.length;
+  document.body.classList.add(themes[themeIndex]);
+  localStorage.setItem("theme",themes[themeIndex]);
+};
+const savedTheme=localStorage.getItem("theme");
+if(savedTheme)document.body.classList.add(savedTheme);
 
+/* HAMBURGER */
 document.getElementById("hamburger").onclick=()=>{
-  document.getElementById("navLinks").classList.toggle("active")
-}
+  document.getElementById("navLinks").classList.toggle("active");
+};
 
-const text="Artificial Intelligence & Data Science Student"
-let i=0
+/* TYPING */
+const text="Artificial Intelligence & Data Science Student";
+let i=0;
 setInterval(()=>{
-  document.getElementById("typing").textContent=text.slice(0,i++)
-  if(i>text.length)i=0
-},120)
+  document.getElementById("typing").textContent=text.slice(0,i++);
+  if(i>text.length)i=0;
+},120);
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add("show")
-      if(e.target.classList.contains("fill")){
-        e.target.style.width=e.target.dataset.width
-      }
-    }
-  })
-},{threshold:.2})
-
-document.querySelectorAll(".card,.fill").forEach(el=>observer.observe(el))
+/* MODAL */
+function openModal(title,desc,tech,link){
+  modalTitle.innerText=title;
+  modalDesc.innerText=desc;
+  modalTech.innerText=tech;
+  modalLink.href=link;
+  projectModal.style.display="flex";
+}
+function closeModal(){
+  projectModal.style.display="none";
+}
 </script>
 
 </body>
