@@ -1,249 +1,346 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Sharon Princy | Advanced Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Sharon Princy | AI Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* ================= RESET ================= */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #020617, #0f172a);
-      color: #e5e7eb;
-      overflow-x: hidden;
-      transition: background 0.4s, color 0.4s;
-    }
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#020617,#0f172a);
+  color:#e5e7eb;
+  transition:.4s;
+  overflow-x:hidden;
+}
+body.light{
+  background:linear-gradient(135deg,#f8fafc,#e2e8f0);
+  color:#020617;
+}
 
-    body.light {
-      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-      color: #020617;
-    }
+section{padding:90px 10%}
+h2{text-align:center;font-size:2.3rem;margin-bottom:40px}
 
-    section { padding: 90px 10%; position: relative; z-index: 2; }
-    h2 { text-align: center; font-size: 2.3rem; margin-bottom: 40px; }
+/* ================= NAVBAR ================= */
+.navbar{
+  position:fixed;top:0;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 10%;
+  background:rgba(2,6,23,.7);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+}
+body.light .navbar{background:rgba(255,255,255,.7)}
 
-    /* ================= BUBBLES ================= */
-    .bubbles { position: fixed; inset: 0; z-index: 1; overflow: hidden; }
-    .bubble {
-      position: absolute; bottom: -100px;
-      background: rgba(56,189,248,0.18);
-      border-radius: 50%;
-      animation: rise linear infinite;
-    }
+.nav-brand{font-size:1.6rem;font-weight:700}
 
-    @keyframes rise {
-      0% { transform: translateY(0); opacity: 0; }
-      20% { opacity: 0.7; }
-      100% { transform: translateY(-120vh); opacity: 0; }
-    }
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
+.nav-links a{
+  color:inherit;
+  text-decoration:none;
+  font-weight:500;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  left:0;bottom:-5px;
+  width:0;height:2px;
+  background:#38bdf8;
+  transition:.3s;
+}
+.nav-links a:hover::after{width:100%}
 
-    /* ================= NAVBAR ================= */
-    .navbar {
-      position: fixed; top: 0; width: 100%;
-      padding: 15px 10%;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(2,6,23,0.6);
-      backdrop-filter: blur(12px);
-      z-index: 1000;
-    }
+.nav-actions{
+  display:flex;
+  gap:15px;
+  align-items:center;
+}
+.icon-btn{
+  background:none;
+  border:none;
+  font-size:1.3rem;
+  cursor:pointer;
+  color:inherit;
+  text-decoration:none;
+}
 
-    body.light .navbar { background: rgba(255,255,255,0.7); }
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+.hamburger span{
+  width:25px;
+  height:3px;
+  background:currentColor;
+}
 
-    .nav-brand { font-size: 1.6rem; font-weight: 700; }
+/* ================= HERO ================= */
+.hero{
+  min-height:100vh;
+  padding-top:120px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:50px;
+}
 
-    .nav-links { display: flex; gap: 25px; list-style: none; }
-    .nav-links a {
-      color: inherit; text-decoration: none; font-weight: 500; position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; left: 0; bottom: -5px;
-      width: 0; height: 2px; background: #38bdf8; transition: 0.3s;
-    }
-    .nav-links a:hover::after { width: 100%; }
+.hero-left img{
+  width:280px;
+  border-radius:50%;
+  box-shadow:0 0 45px rgba(56,189,248,.5);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
 
-    .nav-actions { display: flex; gap: 15px; align-items: center; }
-    .icon-btn { background: none; border: none; font-size: 1.3rem; cursor: pointer; }
+.hero-right h1{font-size:3.2rem}
+.typing{color:#38bdf8;font-weight:600;margin-top:10px}
 
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 25px; height: 3px; background: currentColor; }
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+}
+.buttons a{
+  padding:12px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  background:#38bdf8;
+  color:#020617;
+  transition:.3s;
+}
+.buttons a.outline{
+  background:transparent;
+  border:2px solid #38bdf8;
+  color:#38bdf8;
+}
+.buttons a:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 18px #38bdf8;
+}
 
-    /* ================= HERO ================= */
-    .hero {
-      min-height: 100vh; padding-top: 120px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
-    }
+/* ================= CARDS ================= */
+.card-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
 
-    .hero-left img {
-      width: 280px; border-radius: 50%;
-      box-shadow: 0 0 45px rgba(56,189,248,0.5);
-      animation: float 4s ease-in-out infinite;
-    }
+.card{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+  padding:25px;
+  border-radius:20px;
+  transition:.4s;
+  opacity:0;
+  transform:translateY(40px);
+}
+.card.show{opacity:1;transform:translateY(0)}
+.card:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 0 30px rgba(56,189,248,.4);
+}
 
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
+/* ================= SKILLS ================= */
+.skill{margin-bottom:15px}
+.bar{
+  height:8px;
+  background:#1e293b;
+  border-radius:10px;
+  overflow:hidden;
+}
+.fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(135deg,#38bdf8,#818cf8);
+  transition:1.5s;
+}
 
-    .hero-right h1 { font-size: 3.2rem; }
-    .typing { color: #38bdf8; font-weight: 600; margin-top: 10px; }
+/* ================= PROJECT LINKS ================= */
+.project a{
+  display:inline-block;
+  margin-top:10px;
+  color:#38bdf8;
+  font-weight:600;
+  text-decoration:none;
+}
+.project a:hover{text-decoration:underline}
 
-    .buttons { margin-top: 30px; display: flex; gap: 15px; }
-    .buttons a {
-      padding: 12px 26px; border-radius: 30px; font-weight: 600;
-      text-decoration: none; background: #38bdf8; color: #020617;
-      transition: 0.3s;
-    }
-    .buttons a.outline {
-      background: transparent; border: 2px solid #38bdf8; color: #38bdf8;
-    }
-    .buttons a:hover { transform: scale(1.08); box-shadow: 0 0 18px #38bdf8; }
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  padding:20px;
+  background:rgba(0,0,0,.4);
+}
 
-    /* ================= CARDS ================= */
-    .card-container {
-      display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 25px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
-      padding: 25px; border-radius: 20px;
-      transition: 0.4s; cursor: pointer;
-      opacity: 0; transform: translateY(40px);
-    }
-
-    .card.show { opacity: 1; transform: translateY(0); }
-
-    .card:hover {
-      transform: translateY(-12px) scale(1.03);
-      box-shadow: 0 0 30px rgba(56,189,248,0.4);
-    }
-
-    /* ================= SKILL BARS ================= */
-    .skill { margin-bottom: 15px; }
-    .bar { height: 8px; background: #1e293b; border-radius: 10px; overflow: hidden; }
-    .fill { height: 100%; width: 0; background: linear-gradient(135deg,#38bdf8,#818cf8); }
-
-    /* ================= MODAL ================= */
-    .modal {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.7);
-      display: none; justify-content: center; align-items: center; z-index: 2000;
-    }
-
-    .modal-content {
-      background: #020617; padding: 30px; border-radius: 20px; max-width: 500px;
-    }
-
-    /* ================= FOOTER ================= */
-    footer { text-align: center; padding: 20px; background: rgba(0,0,0,0.4); }
-
-    /* ================= MOBILE ================= */
-    @media (max-width: 768px) {
-      .hero { grid-template-columns: 1fr; text-align: center; }
-      .buttons { justify-content: center; }
-      .nav-links { position: absolute; top: 70px; right: 10%; flex-direction: column; background: #020617; padding: 20px; display: none; }
-      .nav-links.active { display: flex; }
-      .hamburger { display: flex; }
-    }
-  </style>
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .buttons{justify-content:center}
+  .nav-links{
+    position:absolute;
+    top:70px;
+    right:10%;
+    background:#020617;
+    padding:20px;
+    flex-direction:column;
+    display:none;
+  }
+  .nav-links.active{display:flex}
+  .hamburger{display:flex}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Bubbles -->
-  <div class="bubbles">
-    <span class="bubble" style="left:10%;width:40px;height:40px;animation-duration:18s"></span>
-    <span class="bubble" style="left:30%;width:25px;height:25px;animation-duration:14s"></span>
-    <span class="bubble" style="left:50%;width:60px;height:60px;animation-duration:22s"></span>
-    <span class="bubble" style="left:70%;width:35px;height:35px;animation-duration:16s"></span>
-    <span class="bubble" style="left:90%;width:20px;height:20px;animation-duration:12s"></span>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="nav-brand">Sharon</div>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <a href="https://github.com/YOUR_GITHUB" target="_blank" class="icon-btn">🐙</a>
+    <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="icon-btn">💼</a>
+    <a href="resume.pdf" download class="icon-btn">📄</a>
+    <button class="icon-btn" id="themeToggle">🌙</button>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
+</nav>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-brand">Sharon</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-actions">
-      <button class="icon-btn" id="themeToggle">🌙</button>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+<!-- ================= HERO ================= -->
+<header class="hero" id="home">
+  <div class="hero-left">
+    <img src="portpic.jpg" alt="A Sharon Princy">
+  </div>
+  <div class="hero-right">
+    <h1>A Sharon Princy</h1>
+    <p class="typing" id="typing"></p>
+    <div class="buttons">
+      <a href="#contact">Contact</a>
+      <a href="resume.pdf" download class="outline">Download Resume</a>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <!-- Hero -->
-  <header class="hero" id="home">
-    <div class="hero-left"><img src="portpic.jpg" alt="A Sharon Princy"></div>
-    <div class="hero-right">
-      <h1>A Sharon Princy</h1>
-      <p class="typing" id="typing"></p>
-      <div class="buttons">
-        <a href="#contact">Contact</a>
-        <a href="#projects" class="outline">Projects</a>
-      </div>
-    </div>
-  </header>
+<!-- ================= ABOUT ================= -->
+<section id="about">
+<h2>About Me</h2>
+<p style="max-width:800px;margin:auto;text-align:center">
+Final year B.Tech student in Artificial Intelligence & Data Science with strong interest in Machine Learning,
+Large Language Models, Data Analytics and UI/UX. Passionate about building intelligent systems and real-world AI solutions.
+</p>
+</section>
 
-  <section id="about"><h2>About Me</h2><p style="max-width:700px;margin:auto;text-align:center">AI & Data Science student passionate about ML, LLMs, UI/UX and analytics As an AI enthusiast and dedicated student, I am passionate about exploring the frontiers of artificial intelligence and machine learning. Currently pursuing B.tech in New prince Shri bhavani college of engineering and technology, I am equipped with a solid foundation in key AI concepts and methodologies.
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+<h2>Skills</h2>
+<div class="card-container">
 
-I enjoy working on projects that combine innovation with real-world applications ranging from data analytics and predictive modeling to large language models and intelligent systems. With a continuous learning mindset, I am driven to develop impactful solutions and contribute to the evolving AI landscape.
+<div class="card"><h3>Python</h3><div class="bar"><div class="fill" data-width="90%"></div></div></div>
+<div class="card"><h3>Machine Learning</h3><div class="bar"><div class="fill" data-width="85%"></div></div></div>
+<div class="card"><h3>Deep Learning</h3><div class="bar"><div class="fill" data-width="75%"></div></div></div>
+<div class="card"><h3>LLMs & NLP</h3><div class="bar"><div class="fill" data-width="70%"></div></div></div>
+<div class="card"><h3>Power BI</h3><div class="bar"><div class="fill" data-width="80%"></div></div></div>
+<div class="card"><h3>HTML, CSS & JS</h3><div class="bar"><div class="fill" data-width="75%"></div></div></div>
 
-I am now seeking opportunities to apply my skills through internships, research, and industry projects while further expanding my knowledge in cutting-edge AI technologies.</p></section>
+</div>
+</section>
 
-  <section id="skills"><h2>Skills</h2>
-    <div class="card-container">
-      <div class="card"><h3>Python</h3><div class="bar"><div class="fill" data-width="90%"></div></div></div>
-      <div class="card"><h3>Machine Learning</h3><div class="bar"><div class="fill" data-width="85%"></div></div></div>
-      <div class="card"><h3>Power BI</h3><div class="bar"><div class="fill" data-width="80%"></div></div></div>
-    </div>
-  </section>
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+<h2>Projects</h2>
+<div class="card-container">
 
-  <section id="projects"><h2>Projects</h2>
-    <div class="card-container">
-      <div class="card project">Flight Price Prediction</div>
-      <div class="card project">LLM Finance Chatbot</div>
-      <div class="card project">Diabetes Dashboard</div>
-    </div>
-  </section>
+<div class="card project">
+<h3>✈️ Flight Price Prediction</h3>
+<p>ML regression model to predict airfare.</p>
+<a href="#">View Project →</a>
+</div>
 
-  <section id="contact"><h2>Contact</h2>
-    <div class="card-container"><div class="card"><p>Email: sharonprincy234@gmail.com</p></div></div>
-  </section>
+<div class="card project">
+<h3>🤖 LLM Finance Chatbot</h3>
+<p>AI chatbot using LLMs & prompt engineering.</p>
+<a href="#">View Project →</a>
+</div>
 
-  <footer>© 2025 A Sharon Princy</footer>
+<div class="card project">
+<h3>📊 Diabetes Dashboard</h3>
+<p>Power BI health analytics dashboard.</p>
+<a href="#">View Project →</a>
+</div>
+
+<div class="card project">
+<h3>📈 Student Performance Analysis</h3>
+<p>Python based data analytics project.</p>
+<a href="#">View Project →</a>
+</div>
+
+</div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+<h2>Contact</h2>
+<div class="card-container">
+<div class="card">
+<p>Email: sharonprincy234@gmail.com</p>
+</div>
+</div>
+</section>
+
+<footer>© 2025 A Sharon Princy</footer>
 
 <script>
-  // Dark mode
-  document.getElementById('themeToggle').onclick = () => document.body.classList.toggle('light');
+document.getElementById("themeToggle").onclick=()=>{
+  document.body.classList.toggle("light")
+}
 
-  // Hamburger
-  document.getElementById('hamburger').onclick = () => document.getElementById('navLinks').classList.toggle('active');
+document.getElementById("hamburger").onclick=()=>{
+  document.getElementById("navLinks").classList.toggle("active")
+}
 
-  // Typing effect
-  const text = "Artificial Intelligence & Data Science Student";
-  let i = 0;
-  setInterval(() => {
-    document.getElementById('typing').textContent = text.slice(0, i++);
-    if (i > text.length) i = 0;
-  }, 120);
+const text="Artificial Intelligence & Data Science Student"
+let i=0
+setInterval(()=>{
+  document.getElementById("typing").textContent=text.slice(0,i++)
+  if(i>text.length)i=0
+},120)
 
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting && e.target.classList.add('show'));
-  }, { threshold: 0.2 });
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("show")
+      if(e.target.classList.contains("fill")){
+        e.target.style.width=e.target.dataset.width
+      }
+    }
+  })
+},{threshold:.2})
 
-  document.querySelectorAll('.card').forEach(c => observer.observe(c));
-
-  // Skill bars
-  document.querySelectorAll('.fill').forEach(f => {
-    observer.observe(f);
-    f.style.width = f.dataset.width;
-  });
+document.querySelectorAll(".card,.fill").forEach(el=>observer.observe(el))
 </script>
 
 </body>
